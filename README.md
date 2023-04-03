@@ -19,7 +19,7 @@ This is a RestAssured based maven project.
 * TestNG: 7.4.0
 * Apache Maven build tool
 * RestAssured: 4.4.0
-* Jackson Databind: 2.12.2
+* Jackson Databind: 2.9.5
 
 ## Steps to Setting up the project
 * Install and setup Java 2.0
@@ -39,7 +39,7 @@ mvn clean install -DskipTests=true
 * Run the test suite
 
 ```
-mvn clean test -Dsuite=UIAutomation
+mvn clean test -Dsuite=tmSandboxAPIAutomation
 ```
 
 * open the project folder from terminal and type command to generate Allure
