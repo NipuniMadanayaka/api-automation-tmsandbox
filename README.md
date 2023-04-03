@@ -11,8 +11,9 @@ This project automated the API endpoint, https://api.tmsandbox.co.nz/v1/Categori
 This is a RestAssured based maven project.
 
 ##  Automated Scenarios
-1. Validate the acceptance criteria, Name = "Carbon credits" and CanRelist = true
-2. Validate the acceptance criteria, The Promotions element with Name = "Gallery" has a Description that contains the text "Good position in category"
+1. Validate the acceptance criteria, Name = "Carbon credits" 
+2. Validate the acceptance criteria, CanRelist = true
+3. Validate the acceptance criteria, The Promotions element with Name = "Gallery" has a Description that contains the text "Good position in category"
 
 ## Technologies Used
 * Java: 2.0
