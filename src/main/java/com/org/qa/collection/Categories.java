@@ -2,14 +2,13 @@ package com.org.qa.collection;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
-public class CategoriesResponse {
+public class Categories {
 
     @JsonProperty("CategoryId")
     private Integer categoryId;
@@ -56,31 +55,9 @@ public class CategoriesResponse {
     /**
      * No args constructor for use in serialization
      */
-    public CategoriesResponse() {
+    public Categories() {
     }
-
-    /**
-     * @param fees
-     * @param canRelist
-     * @param freePhotoCount
-     * @param defaultDuration
-     * @param areaOfBusiness
-     * @param canListClassifieds
-     * @param legalNotice
-     * @param embeddedContentOptions
-     * @param path
-     * @param promotions
-     * @param defaultRelistDuration
-     * @param maximumPhotoCount
-     * @param canUseCounterOffers
-     * @param name
-     * @param canListAuctions
-     * @param allowedDurations
-     * @param categoryId
-     * @param isFreeToRelist
-     * @param maximumTitleLength
-     */
-    public CategoriesResponse(Integer categoryId, String name, String path, Boolean canListAuctions, Boolean canListClassifieds, Boolean canRelist, String legalNotice, Integer defaultDuration, ArrayList<Integer> allowedDurations, ArrayList<Fees> fees, Integer freePhotoCount, Integer maximumPhotoCount, Boolean isFreeToRelist, ArrayList<Promotion> promotions, List<Object> embeddedContentOptions, Integer maximumTitleLength, Integer areaOfBusiness, Integer defaultRelistDuration, Boolean canUseCounterOffers) {
+    public Categories(Integer categoryId, String name, String path, Boolean canListAuctions, Boolean canListClassifieds, Boolean canRelist, String legalNotice, Integer defaultDuration, ArrayList<Integer> allowedDurations, ArrayList<Fees> fees, Integer freePhotoCount, Integer maximumPhotoCount, Boolean isFreeToRelist, ArrayList<Promotion> promotions, List<Object> embeddedContentOptions, Integer maximumTitleLength, Integer areaOfBusiness, Integer defaultRelistDuration, Boolean canUseCounterOffers) {
         super();
         this.categoryId = categoryId;
         this.name = name;

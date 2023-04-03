@@ -11,17 +11,17 @@ import org.testng.ITestResult;
  */
 public class AllureListener implements ITestListener {
 
-  private static String getTestMethodName(ITestResult iTestResult) {
-    return iTestResult.getMethod().getConstructorOrMethod().getName();
-  }
+    private static String getTestMethodName(ITestResult iTestResult) {
+        return iTestResult.getMethod().getConstructorOrMethod().getName();
+    }
 
-  @Attachment(value = "{0}", type = "text/plain")
-  public static String saveTextLog(String message) {
-    return message;
-  }
+    @Attachment(value = "{0}", type = "text/plain")
+    public static String saveTextLog(String message) {
+        return message;
+    }
 
-  @Override
-  public void onTestFailure(ITestResult result) {
-    saveTextLog(getTestMethodName(result) + " Failed Screenshot Taken");
-  }
+    @Override
+    public void onTestFailure(ITestResult result) {
+        saveTextLog(getTestMethodName(result) + " Failed Screenshot Taken");
+    }
 }

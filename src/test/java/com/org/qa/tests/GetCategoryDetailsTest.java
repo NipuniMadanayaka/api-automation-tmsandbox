@@ -1,6 +1,8 @@
 package com.org.qa.tests;
 
-import com.org.qa.collection.CategoriesResponse;
+import com.org.qa.collection.Categories;
+import com.org.qa.common.testData.CategoryTestData;
+import com.org.qa.common.testData.PromotionTestData;
 import com.org.qa.util.APIResponseDataUtils;
 import com.org.qa.utils.APIListener;
 import com.org.qa.utils.AllureListener;
@@ -8,12 +10,8 @@ import com.org.qa.utils.TestBase;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
-import static com.org.qa.common.TestData.*;
-
 /**
- * This includes the tests for validate the category details of https://api.tmsandbox.co.nz
+ * This includes the tests for validate the category details of <a href="https://api.tmsandbox.co.nz">...</a>
  * <p>
  * Acceptance Criteria:
  * Name = "Carbon credits"
@@ -24,23 +22,22 @@ import static com.org.qa.common.TestData.*;
  */
 @Listeners({AllureListener.class, APIListener.class})
 public class GetCategoryDetailsTest extends TestBase {
-    String categoryId = "6327";
-    boolean isCatalogue = false;
-    String promotionName = PROMO_NAME_GALLERY;
-
     @Test(description = "Test #1: Verify request category details ")
-    public void testCategoryDetails() throws IOException {
-        CategoriesResponse categoriesResponse = APIResponseDataUtils.getCategories(categoryId, isCatalogue);
+    public void testCategoryDetails() {
+        Categories categoriesResponse = APIResponseDataUtils.getCategories(CategoryTestData.CAT_ID_6327, false);
 
-        softAssert.assertEquals(categoriesResponse.getName(), CAT_NAME_CARBON_CREDITS, " Actual name is not matched with expected name-" + CAT_NAME_CARBON_CREDITS);
-        softAssert.assertTrue(categoriesResponse.getCanRelist(), " Actual CanRelist value is not matched with expected value-");
+        softAssert.assertEquals(categoriesResponse.getName(), CategoryTestData.CAT_NAME_CARBON_CREDITS,
+                "Actual name is not matched with expected name-" + CategoryTestData.CAT_NAME_CARBON_CREDITS);
+        softAssert.assertTrue(categoriesResponse.getCanRelist(),
+                "Actual CanRelist value is not matched with expected value-");
 
         int promotionArraySize = categoriesResponse.getPromotions().size();
-        String promotionDescription ;
+        String promotionDescription;
         for (int i = 0; i < promotionArraySize; i++) {
-            if (categoriesResponse.getPromotions().get(i).getName().equals(promotionName)) {
+            if (categoriesResponse.getPromotions().get(i).getName().equals(PromotionTestData.PROMO_NAME_GALLERY)) {
                 promotionDescription = categoriesResponse.getPromotions().get(i).getDescription();
-                softAssert.assertEquals(promotionDescription, PROMO_DESCRIPTION_GOOD_POSITION, " Actual description for the promotion is  not matched with expected - " + PROMO_DESCRIPTION_GOOD_POSITION);
+                softAssert.assertEquals(promotionDescription, PromotionTestData.PROMO_DESCRIPTION_GOOD_POSITION,
+                        "Actual description is not matched with expected- " + PromotionTestData.PROMO_DESCRIPTION_GOOD_POSITION);
                 break;
             }
         }
