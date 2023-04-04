@@ -1,4 +1,4 @@
-# UI Automation Exercise
+# API Automation Exercise
 
 ## Table of contents
 

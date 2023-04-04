@@ -5,6 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
+/**
+ * This is the util class that convert Json String to Java Object
+ *
+ * @author : Nipuni Madanayake <sasankammn@gmail.com>
+ */
+
 public class JacksonDataUtils {
 
     public static Object convertJsonStringToJavaObject(String response, Class c) {

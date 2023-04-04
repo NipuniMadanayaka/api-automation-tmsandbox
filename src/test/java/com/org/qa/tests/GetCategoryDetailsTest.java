@@ -24,7 +24,8 @@ import org.testng.annotations.Test;
 public class GetCategoryDetailsTest extends TestBase {
     @Test(description = "Test #1: Verify request category details ")
     public void testCategoryDetails() {
-        Categories categoriesResponse = APIResponseDataUtils.getCategories(CategoryTestData.CAT_ID_6327, false);
+        Categories categoriesResponse = APIResponseDataUtils.getCategories(CategoryTestData.CAT_ID_6327,
+                false);
 
         softAssert.assertEquals(categoriesResponse.getName(), CategoryTestData.CAT_NAME_CARBON_CREDITS,
                 "Actual name is not matched with expected name-" + CategoryTestData.CAT_NAME_CARBON_CREDITS);
@@ -37,7 +38,8 @@ public class GetCategoryDetailsTest extends TestBase {
             if (categoriesResponse.getPromotions().get(i).getName().equals(PromotionTestData.PROMO_NAME_GALLERY)) {
                 promotionDescription = categoriesResponse.getPromotions().get(i).getDescription();
                 softAssert.assertEquals(promotionDescription, PromotionTestData.PROMO_DESCRIPTION_GOOD_POSITION,
-                        "Actual description is not matched with expected- " + PromotionTestData.PROMO_DESCRIPTION_GOOD_POSITION);
+                        "Actual description is not matched with expected- " +
+                                PromotionTestData.PROMO_DESCRIPTION_GOOD_POSITION);
                 break;
             }
         }
